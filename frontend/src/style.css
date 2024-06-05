@@ -1,40 +1,169 @@
-*{
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-header{
-    background-color: rgb(22, 57, 231);
-    height: 60px;
+
+/* Variáveis de cores */
+:root {
+    --primary-color: rgb(22, 57, 231);
+    --secondary-color: rgb(165, 241, 244);
+    --text-color: darkslategray;
+    --hover-color: rgb(42, 32, 240);
+    --background-color: white;
+}
+
+/* Estilo do header */
+.header {
+    background-color: var(--primary-color);
+    height: 80px;
     padding: 20px;
-    color: rgb(165, 241, 244);
-    
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
-header h1 {
-    font-size: 25px;
-    font-family: Monaco;
+
+.title {
+    font-size: 28px;
+    font-family: "Monaco", monospace;
     font-weight: bold;
 }
-#menu{
-    float: center;
-    margin-top: 2px;
-    background-color: white;
+
+/* Estilo do menu */
+#menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: var(--background-color);
+    padding: 10px 0;
 }
+
 #menu a {
-    padding: 5px;
+    padding: 10px 15px;
     text-decoration: none;
-    color: darkslategray;
-    text-shadow: 1px, 1px, #111111;
+    color: var(--text-color);
+    text-shadow: 1px 1px #111111;
     font-size: 20px;
-    font-family: "Helvetica Neue", "Helvetica";
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    transition: color 0.3s, background-color 0.3s;
 }
-#menu a:hover{
-    background-color: white;
-    color: rgb(42, 32, 240);
+
+#menu a:hover {
+    background-color: var(--background-color);
+    color: var(--hover-color);
     font-weight: bold;
 }
-#table{
+
+/* Estilo da tabela */
+#table {
+    width: 100%;
     margin-top: 50px;
 }
-#reg{
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: left;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo do formulário */
+#reg {
     margin-top: 40px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button.is-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.button.is-primary:hover {
+    background-color: var(--hover-color);
+}
+
+.button.is-success {
+    background-color: green;
+    color: white;
+}
+
+.button.is-success:hover {
+    background-color: darkgreen;
+}
+
+.button.is-danger {
+    background-color: red;
+    color: white;
+}
+
+.button.is-danger:hover {
+    background-color: darkred;
+}
+
+.mt-5 {
+    margin-top: 20px;
+}
+
+.mb-5 {
+    margin-bottom: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        padding: 10px;
+    }
+
+    #menu {
+        flex-direction: column;
+    }
+
+    #menu a {
+        margin-bottom: 10px;
+    }
+
+    .columns {
+        flex-direction: column;
+    }
 }

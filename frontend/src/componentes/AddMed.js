@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../style.css";
 
 const AddMed = () => {
@@ -26,24 +26,17 @@ const AddMed = () => {
   };
 
   return (
-    <html>
-      <head>
-        <title>Estoque de medicamentos</title>
-        <meta charset="utf-8"></meta>
-        <link rel="stylesheet" href="../style.css" type="text/css" />
-      </head>
-      <body>
-        <header>
-          <h1 align="center">Cadastro de Medicamentos</h1>
-        </header>
-          <div>
-            <a href="http://localhost:3000" className="button is-primary mt-5">Estoque de Medicamentos</a>
-          </div>
-        <div className="columns" id="reg">
+    <div>
+      <header className="header">
+        <h1 className="title">Cadastro de Medicamentos</h1>
+      </header>
+      <div className="container mt-5">
+        <Link to="/" className="button is-primary mb-5">Estoque de Medicamentos</Link>
+        <div className="columns">
           <div className="column is-half">
             <form onSubmit={saveMed}>
               <div className="field">
-                <label className="Label">Nome</label>
+                <label className="label">Nome</label>
                 <div className="control">
                   <input
                     type="text"
@@ -51,23 +44,23 @@ const AddMed = () => {
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
                     placeholder="Nome do medicamento"
-                  ></input>
+                  />
                 </div>
               </div>
               <div className="field">
-                <label className="Label">Preço</label>
+                <label className="label">Preço</label>
                 <div className="control">
                   <input
-                    type=""
+                    type="text"
                     className="input"
                     value={preco}
                     onChange={(e) => setPreco(e.target.value)}
                     placeholder="R$"
-                  ></input>
+                  />
                 </div>
               </div>
               <div className="field">
-                <label className="Label">Quantidade</label>
+                <label className="label">Quantidade</label>
                 <div className="control">
                   <input
                     type="number"
@@ -75,11 +68,11 @@ const AddMed = () => {
                     value={quantidade}
                     onChange={(e) => setQtd(e.target.value)}
                     placeholder="Caixas"
-                  ></input>
+                  />
                 </div>
               </div>
               <div className="field">
-                <label className="Label">Validade</label>
+                <label className="label">Validade</label>
                 <div className="control">
                   <input
                     type="month"
@@ -87,7 +80,7 @@ const AddMed = () => {
                     value={validade}
                     onChange={(e) => setVld(e.target.value)}
                     placeholder="Dia/Mês/Ano"
-                  ></input>
+                  />
                 </div>
               </div>
               <div className="field">
@@ -100,8 +93,8 @@ const AddMed = () => {
             </form>
           </div>
         </div>
-      </body>
-    </html>
+      </div>
+    </div>
   );
 };
 
