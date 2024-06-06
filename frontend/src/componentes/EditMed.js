@@ -13,7 +13,7 @@ const EditMed = () => {
 
   useEffect(() => {
     getUserById();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps 
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getUserById = async () => {
     try {
@@ -48,7 +48,9 @@ const EditMed = () => {
         <h1 className="title">Atualizar Medicamento</h1>
       </header>
       <div className="container mt-5">
-        <Link to="/" className="button is-primary mb-5">Estoque de Medicamentos</Link>
+        <Link to="/" className="button is-primary mb-5">
+          Estoque de Medicamentos
+        </Link>
         <div className="columns">
           <div className="column is-half">
             <form onSubmit={updateMed}>
@@ -111,6 +113,9 @@ const EditMed = () => {
           </div>
         </div>
       </div>
+      <footer className="footer">
+        <p>© 2024 Estoque-Farma. Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
 };

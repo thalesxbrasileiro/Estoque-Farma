@@ -31,7 +31,9 @@ const AddMed = () => {
         <h1 className="title">Cadastro de Medicamentos</h1>
       </header>
       <div className="container mt-5">
-        <Link to="/" className="button is-primary mb-5">Estoque de Medicamentos</Link>
+        <Link to="/" className="button is-primary mb-5">
+          Estoque de Medicamentos
+        </Link>
         <div className="columns">
           <div className="column is-half">
             <form onSubmit={saveMed}>
@@ -94,6 +96,9 @@ const AddMed = () => {
           </div>
         </div>
       </div>
+      <footer className="footer">
+        <p>© 2024 Estoque-Farma. Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
 };

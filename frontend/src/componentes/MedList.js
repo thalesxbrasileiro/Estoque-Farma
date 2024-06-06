@@ -61,10 +61,16 @@ const MedList = () => {
                 <td>{med.quantidade}</td>
                 <td>{med.validade}</td>
                 <td>
-                  <Link to={`edit/${med._id}`} className="button is-info is-small mr-2">
+                  <Link
+                    to={`edit/${med._id}`}
+                    className="button is-info is-small mr-2"
+                  >
                     Editar
                   </Link>
-                  <button onClick={() => deleteUser(med._id)} className="button is-danger is-small">
+                  <button
+                    onClick={() => deleteUser(med._id)}
+                    className="button is-danger is-small"
+                  >
                     Excluir
                   </button>
                 </td>
@@ -73,6 +79,9 @@ const MedList = () => {
           </tbody>
         </table>
       </div>
+      <footer className="footer">
+        <p>© 2024 Estoque-Farma. Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
 };

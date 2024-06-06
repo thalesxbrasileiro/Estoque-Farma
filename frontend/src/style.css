@@ -1,38 +1,47 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Variáveis de cores */
 :root {
-    --primary-color: rgb(22, 57, 231);
-    --secondary-color: rgb(165, 241, 244);
-    --text-color: darkslategray;
+    --primary-color: rgb(37, 72, 247);
+    --secondary-color: white;
+    --text-color: rgb(252, 252, 252);
     --hover-color: rgb(42, 32, 240);
-    --background-color: white;
+    --background-color: rgb(255, 255, 255);
 }
 
-/* Estilo do header */
 .header {
     background-color: var(--primary-color);
     height: 80px;
     padding: 20px;
     color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+  }
+
 .title {
     font-size: 28px;
     font-family: "Monaco", monospace;
     font-weight: bold;
+    color: #f9f9f9 !important;
 }
 
-/* Estilo do menu */
 #menu {
     display: flex;
     justify-content: center;
@@ -57,7 +66,6 @@
     font-weight: bold;
 }
 
-/* Estilo da tabela */
 #table {
     width: 100%;
     margin-top: 50px;
@@ -75,7 +83,7 @@
 
 .table th {
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
     text-align: left;
 }
 
@@ -83,7 +91,6 @@
     background-color: #f9f9f9;
 }
 
-/* Estilo do formulário */
 #reg {
     margin-top: 40px;
 }
@@ -148,7 +155,6 @@
     margin-bottom: 20px;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .header {
         height: auto;
