@@ -1,47 +1,51 @@
-import "dotenv/config"
-import express from "express"
+import "dotenv/config";
+import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import UserRoute from "./routes/UserRoute.js";
-import nodemailer from "nodemailer"
+import nodemailer from "nodemailer";
 
 const app = express();
+app.use(cors({ origin: "*" }));
 
-mongoose.connect(process.env.DATABASE_URL, {                 
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
 const PORT = parseInt(process.env.SERVER_PORT);
 
-db.on('error', (error) => console.log(error));
-db.once('open', () => console.log('>> Banco de dados conectado!'));
+db.on("error", (error) => console.log(error));
+db.once("open", () => console.log(">> Banco de dados conectado!"));
 
 app.use(cors());
 app.use(express.json());
 app.use(UserRoute);
 
-app.listen(PORT, () => console.log(`>> O servidor está no ar em http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`>> O servidor está no ar em ${PORT}`));
 
 // Usar o site: https://ethereal.email para enviar os emails
 const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    auth: {
-        user: 'shawna.breitenberg80@ethereal.email',
-        pass: 'CqWqVCtM7ft9up1Nrk'
-    }
+  host: "smtp.ethereal.email",
+  port: 587,
+  auth: {
+    user: "shawna.breitenberg80@ethereal.email",
+    pass: "CqWqVCtM7ft9up1Nrk",
+  },
 });
 
-transporter.sendMail({
+transporter
+  .sendMail({
     from: '"Estoque-Farma" <shawna.breitenberg80@ethereal.email>"',
     to: "joaoarruda@gmail.com",
     subject: "O Estoque-Farma te espera!",
-    html: "Olá, seja bem-vindo ao Estoque-Farma! Vamos navegar nessa nova experiência? <a href='http://localhost:3000'>Clique aqui</a> par entrar."
-}).then(message => {
+    html: "Olá, seja bem-vindo ao Estoque-Farma! Vamos navegar nessa nova experiência? <a href='http://localhost:3000'>Clique aqui</a> par entrar.",
+  })
+  .then((message) => {
     console.log(message);
     console.log(">> Email enviado!");
-}).catch(err => {
+  })
+  .catch((err) => {
     console.log(err);
-});
+  });

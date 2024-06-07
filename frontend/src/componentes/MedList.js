@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const MedList = () => {
   const [meds, setMeds] = useState([]);
   const [error, setError] = useState(null);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     getMeds();
@@ -13,7 +14,7 @@ const MedList = () => {
 
   const getMeds = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/users");
+      const response = await axios.get(`${apiUrl}/users`);
       setMeds(response.data);
     } catch (err) {
       setError("Failed to fetch medications.");
@@ -23,7 +24,7 @@ const MedList = () => {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axios.delete(`${apiUrl}/users/${id}`);
       getMeds();
     } catch (err) {
       setError("Failed to delete medication.");

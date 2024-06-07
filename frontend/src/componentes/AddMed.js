@@ -9,11 +9,12 @@ const AddMed = () => {
   const [quantidade, setQtd] = useState("");
   const [validade, setVld] = useState("");
   const navegar = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const saveMed = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/users", {
+      await axios.post(`${apiUrl}/users`, {
         nome,
         preco,
         quantidade,

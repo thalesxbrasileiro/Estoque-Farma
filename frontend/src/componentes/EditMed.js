@@ -10,6 +10,7 @@ const EditMed = () => {
   const [validade, setVld] = useState("");
   const navegar = useNavigate();
   const { id } = useParams();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     getUserById();
@@ -17,7 +18,7 @@ const EditMed = () => {
 
   const getUserById = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/users/${id}`);
+      const response = await axios.get(`${apiUrl}/users/${id}`);
       setNome(response.data.nome);
       setPreco(response.data.preco);
       setQtd(response.data.quantidade);
@@ -30,7 +31,7 @@ const EditMed = () => {
   const updateMed = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/users/${id}`, {
+      await axios.patch(`${apiUrl}users/${id}`, {
         nome,
         preco,
         quantidade,

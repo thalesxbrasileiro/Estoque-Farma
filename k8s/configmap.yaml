@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  DATABASE_URL: "mongodb://mongo:27017/fullstack_db"
+  SERVER_PORT: "32001"
+  SALT_ROUNDS: "7"
+  VALIDADE_TOKEN: "300"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+data:
+  REACT_APP_API_URL: "http://192.168.49.2:32001"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+data:
+  AUTH: "no"

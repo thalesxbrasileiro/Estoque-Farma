@@ -1,7 +1,17 @@
-FROM node:18.14.2
+# Backend Dockerfile
+FROM node:18.14.2 AS build
+
+WORKDIR /app
 
 COPY package.json .
 RUN npm install
 
 COPY . .
-CMD npm start
+
+FROM node:18.14.2 AS run
+
+WORKDIR /app
+
+COPY --from=build /app .
+
+CMD ["npm", "start"]
